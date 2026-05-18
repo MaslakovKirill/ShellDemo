@@ -9,11 +9,13 @@ $(MAIN).exe: $(OBJ)
 #$(MAIN).o: $(MAIN).cpp
 #	$(CXX) $(CPPFLAGS) -c $(MAIN).cpp
 
-run:
+$(MAIN).o HStack.o: HStack.hpp
+
+run: $(MAIN).exe
 	./$(MAIN).exe
 
 clean:
-	RM *.o *.exe
+	rm -f *.o *.exe
 all: $(MAIN).exe run clean
 
-PHONY: all clean
+.PHONY: all clean
